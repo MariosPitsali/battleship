@@ -1,6 +1,6 @@
 class Ship(object):
     
-    def __init__(self, name: str, hit_points: int):
+    def __init__(self, name, hit_points):
         self.name = name
         self._hit_points = hit_points
     
@@ -13,13 +13,13 @@ class Ship(object):
     
 class Carrier(Ship):
     
-    def __init__(self):
-        super().__init__(name = "Carrier", hit_points = 5)
+    def __init__(self, name):
+        super(Carrier, self).__init__(name = name, hit_points = 5)
     
 class Battleship(Ship):
     
-    def __init__(self):
-        super().__init__(name = "Battleship", hit_points = 4)
+    def __init__(self, name):
+        super(Battleship, self).__init__(name = name, hit_points = 4)
 
 class Cruiser(Ship):
     
