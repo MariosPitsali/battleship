@@ -29,15 +29,34 @@ def create_matrix(x = 5):
         board[i] = ["O" for y in range(x)]
     return board
 
+def create_rows(x = 5):
+    rows = {}
+    for i in range(x):
+        rows[i] = ["O" for y in range(x)]
+    return rows
+def change_os(board, ship):
+    pass
 def place_ship (b, ship):
-    if ship:
-        print (ship._hit_points)
-        available_lines_in_board = check_consecutive(b, ship._hit_points)
-        row_or_column = "row" if randint(1, len(available_lines_in_board)) % 2 ==0 else "column"
-        print (row_or_column)
-
+    try:
+        if ship:
+            print (ship._hit_points)
+            available_lines_in_board = check_consecutive(b, ship._hit_points)
+            print (available_lines_in_board)
+            row_or_column = "row" if randint(1, len(available_lines_in_board)) % 2 ==0 else "column"
+            row = available_lines_in_board[randint(0, len(available_lines_in_board))]
+            print (row)
+            print (row_or_column)
+            if row_or_column == "row":
+                starting_point = randint(0, len(b[row]) - ship._hit_points)
+                for i in range(starting_point, len(b[row])):
+                    b[row][i] = ship.name
+                    print (b[row])
+    except AttributeError:
+        print ("Incorrect type")
+        
 if __name__ == "__main__":
     b = create_matrix(6)
     print (check_consecutive(b, 8))
     carrier = Carrier("Carrier")
     place_ship(b, carrier)
+    print (create_rows)
