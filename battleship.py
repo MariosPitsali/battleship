@@ -51,6 +51,8 @@ def place_ship (b, ship):
                 for i in range(starting_point, len(b[row])):
                     b[row][i] = ship.name
                     print (b[row])
+            else:
+                
     except AttributeError:
         print ("Incorrect type")
         
